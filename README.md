@@ -37,15 +37,17 @@ Each stage is carefully optimized to minimize stalls and maximize throughput usi
 
 ---
 
-## Project Structure (Planned)
+## Project Structure
 
 ```
-/rtl           - Verilog RTL files
-/tb            - Testbenches
-/docs          - Design Documentation
-/scripts       - Build and Simulation Scripts
-/linux_support - Linux Bootloader and Support Files
+/rtl           - Verilog RTL files (processor core, pipeline stages, MMU)
+/tb            - Testbenches (unit tests, integration tests, verification)
+/docs          - Design Documentation (specs, interfaces, memory maps)
+/scripts       - Build and Simulation Scripts (automation & utilities)
+/linux_support - Linux Bootloader and Support Files (boot, configs, DTB)
 ```
+
+Each directory contains its own README.md with detailed information about its contents and purpose.
 
 ---
 
