@@ -1,0 +1,24 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Fri Jun 20 17:09:37 2025
+[*]
+[dumpfile] "E:\My Projects\Verilog\RISC-V Full Processor\tb\sign_extender\sign_extender_tb.vcd"
+[dumpfile_mtime] "Fri Jun 20 17:08:40 2025"
+[dumpfile_size] 1207
+[savefile] "E:\My Projects\Verilog\RISC-V Full Processor\tb\sign_extender\load_file.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-5.043809 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] sign_extender_tb.
+[sst_width] 197
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@29
+sign_extender_tb.IMMEDIATE[31:0]
+sign_extender_tb.INSTRUCTION[31:0]
+sign_extender_tb.sign_extender.FUNC3
+sign_extender_tb.sign_extender.OPCODE
+[pattern_trace] 1
+[pattern_trace] 0
