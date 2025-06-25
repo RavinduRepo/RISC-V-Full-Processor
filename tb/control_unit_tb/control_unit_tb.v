@@ -13,10 +13,10 @@ module control_unit_tb;
     wire MEM_READ;
     wire BRANCH;
     wire JUMP;
-    wire PC_SELECT;
-    wire JAL_SELECT;
-    wire DATA_MEM_SELECT;
-    wire [2:0] IMM_PICK;
+    wire MUX_2_PC_SELECT;
+    wire MUX_1_IMM_SELECT;
+    wire MUX_3_JAL_SELECT;
+    wire MUX_4_DATA_MEM_SELECT;
 
     // Instantiate the Unit Under Test (UUT)
     control_unit uut (
@@ -28,10 +28,10 @@ module control_unit_tb;
         .MEM_READ(MEM_READ), 
         .BRANCH(BRANCH), 
         .JUMP(JUMP), 
-        .PC_SELECT(PC_SELECT), 
-        .JAL_SELECT(JAL_SELECT), 
-        .DATA_MEM_SELECT(DATA_MEM_SELECT), 
-        .IMM_PICK(IMM_PICK)
+        .MUX_2_PC_SELECT(MUX_2_PC_SELECT), 
+        .MUX_1_IMM_SELECT(MUX_1_IMM_SELECT),
+        .MUX_3_JAL_SELECT(MUX_3_JAL_SELECT), 
+        .MUX_4_DATA_MEM_SELECT(MUX_4_DATA_MEM_SELECT)
     );
 
     initial begin

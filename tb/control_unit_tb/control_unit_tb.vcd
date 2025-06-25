@@ -1,5 +1,5 @@
 $date
-	Wed Jun 25 22:30:48 2025
+	Wed Jun 25 23:13:44 2025
 $end
 $version
 	Icarus Verilog
@@ -9,13 +9,13 @@ $timescale
 $end
 $scope module control_unit_tb $end
 $var wire 1 ! WRITE_ENABLE $end
-$var wire 1 " PC_SELECT $end
-$var wire 1 # MEM_WRITE $end
-$var wire 1 $ MEM_READ $end
-$var wire 1 % JUMP $end
-$var wire 1 & JAL_SELECT $end
-$var wire 3 ' IMM_PICK [2:0] $end
-$var wire 1 ( DATA_MEM_SELECT $end
+$var wire 1 " MUX_4_DATA_MEM_SELECT $end
+$var wire 1 # MUX_3_JAL_SELECT $end
+$var wire 1 $ MUX_2_PC_SELECT $end
+$var wire 1 % MUX_1_IMM_SELECT $end
+$var wire 1 & MEM_WRITE $end
+$var wire 1 ' MEM_READ $end
+$var wire 1 ( JUMP $end
 $var wire 1 ) BRANCH $end
 $var reg 3 * FUNC3 [2:0] $end
 $var reg 7 + FUNC7 [6:0] $end
@@ -26,13 +26,13 @@ $var wire 7 . FUNC7 [6:0] $end
 $var wire 7 / OPCODE [6:0] $end
 $var reg 3 0 ALU_OP [2:0] $end
 $var reg 1 ) BRANCH $end
-$var reg 1 ( DATA_MEM_SELECT $end
-$var reg 3 1 IMM_PICK [2:0] $end
-$var reg 1 & JAL_SELECT $end
-$var reg 1 % JUMP $end
-$var reg 1 $ MEM_READ $end
-$var reg 1 # MEM_WRITE $end
-$var reg 1 " PC_SELECT $end
+$var reg 1 ( JUMP $end
+$var reg 1 ' MEM_READ $end
+$var reg 1 & MEM_WRITE $end
+$var reg 1 % MUX_1_IMM_SELECT $end
+$var reg 1 $ MUX_2_PC_SELECT $end
+$var reg 1 # MUX_3_JAL_SELECT $end
+$var reg 1 " MUX_4_DATA_MEM_SELECT $end
 $var reg 1 ! WRITE_ENABLE $end
 $upscope $end
 $upscope $end
@@ -42,7 +42,6 @@ $dumpall
 $end
 #0
 $dumpvars
-b0 1
 b0 0
 b0 /
 b0 .
@@ -52,9 +51,9 @@ b0 +
 b0 *
 0)
 0(
-b0 '
+0'
 0&
-0%
+1%
 0$
 0#
 0"
@@ -105,9 +104,9 @@ b110 -
 b111 *
 b111 -
 #110000
-1(
+1"
 b1 0
-1$
+1'
 1!
 b0 *
 b0 -
@@ -115,38 +114,38 @@ b11 ,
 b11 /
 #120000
 b1 0
-1(
-1$
+1"
+1'
 1!
 b1 *
 b1 -
 #130000
 b1 0
-1(
-1$
+1"
+1'
 1!
 b10 *
 b10 -
 #140000
 b1 0
-1(
-1$
+1"
+1'
 1!
 b100 *
 b100 -
 #150000
 b1 0
-1(
-1$
+1"
+1'
 1!
 b101 *
 b101 -
 #160000
-1%
-1&
+1(
+1#
 b10 0
-0(
-0$
+0"
+0'
 1!
 b0 *
 b0 -
@@ -154,8 +153,8 @@ b1100111 ,
 b1100111 /
 #170000
 b11 0
-0&
-0%
+0#
+0(
 1!
 b10011 ,
 b10011 /
@@ -200,9 +199,7 @@ b11 0
 b100000 +
 b100000 .
 #260000
-b1 '
-b1 1
-1#
+1&
 b100 0
 0!
 b0 *
@@ -211,40 +208,30 @@ b100011 ,
 b100011 /
 #270000
 b100 0
-b1 '
-b1 1
-1#
+1&
 b1 *
 b1 -
 #280000
 b100 0
-b1 '
-b1 1
-1#
+1&
 b10 *
 b10 -
 #290000
 1!
 b101 0
-b10 '
-b10 1
-0#
+0&
 b110111 ,
 b110111 /
 #300000
-1"
+1$
 b100 0
-b10 '
-b10 1
 1!
 b10111 ,
 b10111 /
 #310000
 1)
 b100 0
-b11 '
-b11 1
-1"
+1$
 0!
 b0 *
 b0 -
@@ -252,62 +239,48 @@ b1100011 ,
 b1100011 /
 #320000
 b100 0
-b11 '
-b11 1
-1"
+1$
 1)
 b1 *
 b1 -
 #330000
 b100 0
-b11 '
-b11 1
-1"
+1$
 1)
 b100 *
 b100 -
 #340000
 b100 0
-b11 '
-b11 1
-1"
+1$
 1)
 b101 *
 b101 -
 #350000
 b100 0
-b11 '
-b11 1
-1"
+1$
 1)
 b110 *
 b110 -
 #360000
 b100 0
-b11 '
-b11 1
-1"
+1$
 1)
 b111 *
 b111 -
 #370000
 1!
-1&
-1%
+1#
+1(
 b100 0
-b100 '
-b100 1
-1"
+1$
 0)
 b1101111 ,
 b1101111 /
 #380000
 b11 0
-b0 '
-b0 1
-0&
-0"
-0%
+0#
+0$
+0(
 1!
 b0 *
 b0 -

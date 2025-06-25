@@ -9,10 +9,10 @@ module control_unit(
     output reg        MEM_READ,
     output reg        BRANCH,
     output reg        JUMP,
-    output reg        PC_SELECT, // 
-    output reg        IMM_SELECT, // Select immediate value for ALU
-    output reg        JAL_SELECT,
-    output reg        DATA_MEM_SELECT,
+    output reg        MUX_2_PC_SELECT, // PC_SELECT, // MUX_2
+    output reg        MUX_1_IMM_SELECT, // IMM_SELECT, // MUX_1
+    output reg        MUX_3_JAL_SELECT, // JAL_SELECT, // MUX_3
+    output reg        MUX_4_DATA_MEM_SELECT, // DATA_MEM_SELECT, // MUX_4
     output reg [2:0]  ALU_OP
 );
     // always block * to run the block whenever any input changes
@@ -24,10 +24,10 @@ module control_unit(
         MEM_READ = 1'b0;
         BRANCH = 1'b0;
         JUMP = 1'b0;
-        PC_SELECT = 1'b0;
-        IMM_SELECT = 1'b1;
-        JAL_SELECT = 1'b0;
-        DATA_MEM_SELECT = 1'b0;
+        MUX_2_PC_SELECT = 1'b0;
+        MUX_1_IMM_SELECT = 1'b1;
+        MUX_3_JAL_SELECT = 1'b0;
+        MUX_4_DATA_MEM_SELECT = 1'b0;
         ALU_OP = 3'b000;
 
         case (OPCODE)
@@ -46,19 +46,19 @@ module control_unit(
                 FUNC3 == 3'b100 || // LBU
                 FUNC3 == 3'b101)   // LHU
                 begin
-                    IMM_SELECT = 1'b1;
+                    MUX_1_IMM_SELECT = 1'b1;
                     WRITE_ENABLE = 1'b1;
                     MEM_READ = 1'b1;
                     ALU_OP = 3'b001;
-                    DATA_MEM_SELECT = 1'b1;
+                    MUX_4_DATA_MEM_SELECT = 1'b1;
                 end
         8'b1100111:
             case (FUNC3)
             3'b000: // JALR
             begin
                 WRITE_ENABLE = 1'b1;
-                JAL_SELECT = 1'b1;
-                IMM_SELECT = 1'b1;
+                MUX_3_JAL_SELECT = 1'b1;
+                MUX_1_IMM_SELECT = 1'b1;
                 JUMP = 1'b1;
                 ALU_OP = 3'b010;
                 // Set the LSB of the calculated address to 0 to ensure it is word-aligned.
@@ -73,7 +73,7 @@ module control_unit(
                 FUNC3 == 3'b111)   // ANDI
             begin
                 WRITE_ENABLE = 1'b1;
-                IMM_SELECT = 1'b1;
+                MUX_1_IMM_SELECT = 1'b1;
                 ALU_OP = 3'b011;
             end
             
@@ -82,7 +82,7 @@ module control_unit(
                 (FUNC7 == 7'b0100000 && FUNC3 == 3'b101))   // SRAI
             begin
                 WRITE_ENABLE = 1'b1;
-                IMM_SELECT = 1'b1;
+                MUX_1_IMM_SELECT = 1'b1;
                 ALU_OP = 3'b011;
             end
 
@@ -92,19 +92,19 @@ module control_unit(
             3'b000: // SB
             begin
                 MEM_WRITE = 1'b1;
-                IMM_SELECT = 1'b1;
+                MUX_1_IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
             3'b001: // SH
             begin
                 MEM_WRITE = 1'b1;
-                IMM_SELECT = 1'b1;
+                MUX_1_IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
             3'b010: // SW
             begin
                 MEM_WRITE = 1'b1;
-                IMM_SELECT = 1'b1;
+                MUX_1_IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
             endcase
@@ -113,14 +113,14 @@ module control_unit(
         8'b0110111: // LUI
             begin
             WRITE_ENABLE = 1'b1;
-            IMM_SELECT = 1'b1;
+            MUX_1_IMM_SELECT = 1'b1;
             ALU_OP     = 3'b101;
             end
         8'b0010111: // AUIPC
             begin
             WRITE_ENABLE = 1'b1;
-            IMM_SELECT = 1'b1;
-            PC_SELECT = 1'b1;
+            MUX_1_IMM_SELECT = 1'b1;
+            MUX_2_PC_SELECT = 1'b1;
             ALU_OP = 3'b100;
             end
 
@@ -134,8 +134,8 @@ module control_unit(
                 FUNC3 == 3'b111)   // BGEU
             begin
                 BRANCH = 1'b1;
-                PC_SELECT = 1'b1;
-                IMM_SELECT = 1'b1;
+                MUX_2_PC_SELECT = 1'b1;
+                MUX_1_IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
 
@@ -144,9 +144,9 @@ module control_unit(
         8'b1101111: // JAL
             begin
             JUMP = 1'b1;
-            JAL_SELECT = 1'b1;
-            PC_SELECT = 1'b1;
-            IMM_SELECT = 1'b1;
+            MUX_3_JAL_SELECT = 1'b1;
+            MUX_2_PC_SELECT = 1'b1;
+            MUX_1_IMM_SELECT = 1'b1;
             WRITE_ENABLE = 1'b1;
             ALU_OP = 3'b100;
             end
