@@ -10,6 +10,7 @@ module control_unit(
     output reg        BRANCH,
     output reg        JUMP,
     output reg        PC_SELECT, // 
+    output reg        IMM_SELECT, // Select immediate value for ALU
     output reg        JAL_SELECT,
     output reg        DATA_MEM_SELECT,
     output reg [2:0]  ALU_OP
@@ -24,6 +25,7 @@ module control_unit(
         BRANCH = 1'b0;
         JUMP = 1'b0;
         PC_SELECT = 1'b0;
+        IMM_SELECT = 1'b1;
         JAL_SELECT = 1'b0;
         DATA_MEM_SELECT = 1'b0;
         ALU_OP = 3'b000;
@@ -44,6 +46,7 @@ module control_unit(
                 FUNC3 == 3'b100 || // LBU
                 FUNC3 == 3'b101)   // LHU
                 begin
+                    IMM_SELECT = 1'b1;
                     WRITE_ENABLE = 1'b1;
                     MEM_READ = 1'b1;
                     ALU_OP = 3'b001;
@@ -55,6 +58,7 @@ module control_unit(
             begin
                 WRITE_ENABLE = 1'b1;
                 JAL_SELECT = 1'b1;
+                IMM_SELECT = 1'b1;
                 JUMP = 1'b1;
                 ALU_OP = 3'b010;
                 // Set the LSB of the calculated address to 0 to ensure it is word-aligned.
@@ -69,6 +73,7 @@ module control_unit(
                 FUNC3 == 3'b111)   // ANDI
             begin
                 WRITE_ENABLE = 1'b1;
+                IMM_SELECT = 1'b1;
                 ALU_OP = 3'b011;
             end
             
@@ -77,6 +82,7 @@ module control_unit(
                 (FUNC7 == 7'b0100000 && FUNC3 == 3'b101))   // SRAI
             begin
                 WRITE_ENABLE = 1'b1;
+                IMM_SELECT = 1'b1;
                 ALU_OP = 3'b011;
             end
 
@@ -86,16 +92,19 @@ module control_unit(
             3'b000: // SB
             begin
                 MEM_WRITE = 1'b1;
+                IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
             3'b001: // SH
             begin
                 MEM_WRITE = 1'b1;
+                IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
             3'b010: // SW
             begin
                 MEM_WRITE = 1'b1;
+                IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
             endcase
@@ -104,11 +113,13 @@ module control_unit(
         8'b0110111: // LUI
             begin
             WRITE_ENABLE = 1'b1;
+            IMM_SELECT = 1'b1;
             ALU_OP     = 3'b101;
             end
         8'b0010111: // AUIPC
             begin
             WRITE_ENABLE = 1'b1;
+            IMM_SELECT = 1'b1;
             PC_SELECT = 1'b1;
             ALU_OP = 3'b100;
             end
@@ -124,6 +135,7 @@ module control_unit(
             begin
                 BRANCH = 1'b1;
                 PC_SELECT = 1'b1;
+                IMM_SELECT = 1'b1;
                 ALU_OP = 3'b100;
             end
 
@@ -134,6 +146,7 @@ module control_unit(
             JUMP = 1'b1;
             JAL_SELECT = 1'b1;
             PC_SELECT = 1'b1;
+            IMM_SELECT = 1'b1;
             WRITE_ENABLE = 1'b1;
             ALU_OP = 3'b100;
             end
