@@ -1,5 +1,5 @@
 $date
-	Sat Jun 07 00:50:31 2025
+	Wed Jun 25 22:26:54 2025
 $end
 $version
 	Icarus Verilog
@@ -17,17 +17,178 @@ $var reg 1 & RST $end
 $var reg 32 ' WRITE_DATA [31:0] $end
 $var reg 1 ( WRITE_ENABLE $end
 $var reg 5 ) WRITE_REG [4:0] $end
+$var integer 32 * i [31:0] $end
 $scope module dut $end
 $var wire 1 # CLK $end
-$var wire 5 * READ_REG_1 [4:0] $end
-$var wire 5 + READ_REG_2 [4:0] $end
+$var wire 5 + READ_REG_1 [4:0] $end
+$var wire 5 , READ_REG_2 [4:0] $end
 $var wire 1 & RST $end
-$var wire 32 , WRITE_DATA [31:0] $end
+$var wire 32 - WRITE_DATA [31:0] $end
 $var wire 1 ( WRITE_ENABLE $end
-$var wire 5 - WRITE_REG [4:0] $end
-$var wire 32 . READ_DATA_2 [31:0] $end
-$var wire 32 / READ_DATA_1 [31:0] $end
-$var integer 32 0 i [31:0] $end
+$var wire 5 . WRITE_REG [4:0] $end
+$var wire 32 / READ_DATA_2 [31:0] $end
+$var wire 32 0 READ_DATA_1 [31:0] $end
+$var integer 32 1 i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 2 \REGISTERS[0] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 3 \REGISTERS[1] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 4 \REGISTERS[2] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 5 \REGISTERS[3] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 6 \REGISTERS[4] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 7 \REGISTERS[5] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 8 \REGISTERS[6] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 9 \REGISTERS[7] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 : \REGISTERS[8] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 ; \REGISTERS[9] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 < \REGISTERS[10] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 = \REGISTERS[11] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 > \REGISTERS[12] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 ? \REGISTERS[13] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 @ \REGISTERS[14] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 A \REGISTERS[15] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 B \REGISTERS[16] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 C \REGISTERS[17] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 D \REGISTERS[18] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 E \REGISTERS[19] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 F \REGISTERS[20] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 G \REGISTERS[21] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 H \REGISTERS[22] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 I \REGISTERS[23] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 J \REGISTERS[24] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 K \REGISTERS[25] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 L \REGISTERS[26] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 M \REGISTERS[27] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 N \REGISTERS[28] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 O \REGISTERS[29] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 P \REGISTERS[30] [31:0] $end
+$upscope $end
+$upscope $end
+$scope module register_file_tb $end
+$scope module dut $end
+$var reg 32 Q \REGISTERS[31] [31:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -36,13 +197,46 @@ $dumpall
 $end
 #0
 $dumpvars
-b100000 0
+b0 Q
+b0 P
+b0 O
+b0 N
+b0 M
+b0 L
+b0 K
+b0 J
+b0 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+b0 C
+b0 B
+b0 A
+b0 @
+b0 ?
+b0 >
+b0 =
+b0 <
+b0 ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+b100000 1
+b0 0
 b0 /
 b0 .
 b0 -
 b0 ,
 b0 +
-b0 *
+b100000 *
 b0 )
 0(
 b0 '
@@ -60,16 +254,19 @@ $end
 0#
 #15
 b10101010101010101010101010101010 '
-b10101010101010101010101010101010 ,
+b10101010101010101010101010101010 -
 b1 )
-b1 -
+b1 .
 1(
 1#
 #20
 0#
 #25
+b10101010101010101010101010101010 "
+b10101010101010101010101010101010 0
+b10101010101010101010101010101010 3
 b1 $
-b1 *
+b1 +
 0(
 1#
 #30
@@ -80,16 +277,18 @@ b1 *
 0#
 #45
 b11111111111111111111111111111111 '
-b11111111111111111111111111111111 ,
+b11111111111111111111111111111111 -
 b0 )
-b0 -
+b0 .
 1(
 1#
 #50
 0#
 #55
+b0 "
+b0 0
 b0 $
-b0 *
+b0 +
 0(
 1#
 #60
@@ -99,27 +298,32 @@ b0 *
 #70
 0#
 #75
+b10101010101010101010101010101010 !
+b10101010101010101010101010101010 /
 b1 %
-b1 +
+b1 ,
 b10 $
-b10 *
+b10 +
 b1010101010101010101010101010101 '
-b1010101010101010101010101010101 ,
+b1010101010101010101010101010101 -
 b10 )
-b10 -
+b10 .
 1(
 1#
 #80
 0#
 #85
 b1010101010101010101010101010101 "
-b1010101010101010101010101010101 /
+b1010101010101010101010101010101 0
+b1010101010101010101010101010101 4
 1#
 #90
 0#
 #95
+b1010101010101010101010101010101 4
 1#
 #100
 0#
 #105
+b1010101010101010101010101010101 4
 1#

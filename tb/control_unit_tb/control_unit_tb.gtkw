@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Jun 25 17:02:18 2025
+[*]
+[dumpfile] "E:\My Projects\Verilog\RISC-V Full Processor\tb\control_unit_tb\control_unit_tb.vcd"
+[dumpfile_mtime] "Wed Jun 25 17:00:48 2025"
+[dumpfile_size] 2875
+[savefile] "E:\My Projects\Verilog\RISC-V Full Processor\tb\control_unit_tb\control_unit_tb.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-16.985754 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 197
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 153
+@28
+control_unit_tb.BRANCH
+control_unit_tb.DATA_MEM_SELECT
+control_unit_tb.FUNC3[2:0]
+@22
+control_unit_tb.FUNC7[6:0]
+@28
+control_unit_tb.IMM_PICK[2:0]
+control_unit_tb.JAL_SELECT
+control_unit_tb.JUMP
+control_unit_tb.MEM_READ
+control_unit_tb.MEM_WRITE
+@22
+control_unit_tb.OPCODE[6:0]
+@28
+control_unit_tb.PC_SELECT
+@29
+control_unit_tb.WRITE_ENABLE
+[pattern_trace] 1
+[pattern_trace] 0

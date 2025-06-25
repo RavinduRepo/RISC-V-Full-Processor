@@ -1,23 +1,24 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Fri Jun 06 19:34:49 2025
+[*] Wed Jun 25 16:57:36 2025
 [*]
-[dumpfile] "E:\My Projects\Verilog\RISC-V Full Processor\rtl\register_file\register_file_tb.vcd"
-[dumpfile_mtime] "Fri Jun 06 19:20:31 2025"
-[dumpfile_size] 1623
-[savefile] "E:\My Projects\Verilog\RISC-V Full Processor\rtl\register_file\load_file.gtkw"
+[dumpfile] "E:\My Projects\Verilog\RISC-V Full Processor\tb\register_file_tb\register_file_tb.vcd"
+[dumpfile_mtime] "Wed Jun 25 16:56:54 2025"
+[dumpfile_size] 6410
+[savefile] "E:\My Projects\Verilog\RISC-V Full Processor\tb\register_file_tb\load_file.gtkw"
 [timestart] 0
-[size] 1000 600
+[size] 1000 562
 [pos] -1 -1
-*-4.977314 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-4.977314 55 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] register_file_tb.
 [sst_width] 197
-[signals_width] 166
+[signals_width] 182
 [sst_expanded] 1
-[sst_vpaned_height] 153
+[sst_vpaned_height] 140
 @28
 register_file_tb.CLK
 register_file_tb.RST
-@22
+@23
 register_file_tb.WRITE_DATA[31:0]
 @28
 register_file_tb.WRITE_ENABLE
@@ -27,5 +28,14 @@ register_file_tb.READ_REG_1[4:0]
 register_file_tb.READ_DATA_1[31:0]
 register_file_tb.READ_REG_2[4:0]
 register_file_tb.READ_DATA_2[31:0]
+@200
+-
+@22
+register_file_tb.dut.\REGISTERS[0][31:0]
+register_file_tb.dut.\REGISTERS[1][31:0]
+register_file_tb.dut.\REGISTERS[2][31:0]
+register_file_tb.dut.\REGISTERS[3][31:0]
+register_file_tb.dut.\REGISTERS[4][31:0]
+register_file_tb.dut.\REGISTERS[5][31:0]
 [pattern_trace] 1
 [pattern_trace] 0

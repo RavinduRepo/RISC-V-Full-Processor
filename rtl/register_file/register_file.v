@@ -29,7 +29,7 @@ module register_file (
             for (i = 0; i < 32; i = i + 1)
                 REGISTERS[i] <= 32'b0;
         end
-        else if (WRITE_ENABLE && WRITE_REG != 0)
+        else if (WRITE_ENABLE && WRITE_REG != 32'b00000000_00000000_00000000_00000000)
             REGISTERS[WRITE_REG] <= WRITE_DATA;
     end
 
