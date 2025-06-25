@@ -12,7 +12,6 @@ module control_unit(
     output reg        PC_SELECT, // 
     output reg        JAL_SELECT,
     output reg        DATA_MEM_SELECT,
-    output reg [2:0]  IMM_PICK,
     output reg [2:0]  ALU_OP
 );
     // always block * to run the block whenever any input changes
@@ -27,7 +26,6 @@ module control_unit(
         PC_SELECT = 1'b0;
         JAL_SELECT = 1'b0;
         DATA_MEM_SELECT = 1'b0;
-        IMM_PICK = 3'b000;
         ALU_OP = 3'b000;
 
         case (OPCODE)
@@ -88,19 +86,16 @@ module control_unit(
             3'b000: // SB
             begin
                 MEM_WRITE = 1'b1;
-                IMM_PICK = 3'b001;
                 ALU_OP = 3'b100;
             end
             3'b001: // SH
             begin
                 MEM_WRITE = 1'b1;
-                IMM_PICK = 3'b001;
                 ALU_OP = 3'b100;
             end
             3'b010: // SW
             begin
                 MEM_WRITE = 1'b1;
-                IMM_PICK = 3'b001;
                 ALU_OP = 3'b100;
             end
             endcase
@@ -109,13 +104,11 @@ module control_unit(
         8'b0110111: // LUI
             begin
             WRITE_ENABLE = 1'b1;
-            IMM_PICK = 3'b010;
             ALU_OP     = 3'b101;
             end
         8'b0010111: // AUIPC
             begin
             WRITE_ENABLE = 1'b1;
-            IMM_PICK = 3'b010;
             PC_SELECT = 1'b1;
             ALU_OP = 3'b100;
             end
@@ -131,7 +124,6 @@ module control_unit(
             begin
                 BRANCH = 1'b1;
                 PC_SELECT = 1'b1;
-                IMM_PICK = 3'b011;
                 ALU_OP = 3'b100;
             end
 
@@ -142,7 +134,6 @@ module control_unit(
             JUMP = 1'b1;
             JAL_SELECT = 1'b1;
             PC_SELECT = 1'b1;
-            IMM_PICK = 3'b100;
             WRITE_ENABLE = 1'b1;
             ALU_OP = 3'b100;
             end
